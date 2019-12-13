@@ -110,6 +110,7 @@ $('.radial-score').each(function(i){
     el.text('');
     el.append('<span>'+0+'</span>')
     var score = ( 1 - ((scoreString[0] * 1) / (scoreString[1] * 1)) ) * 720;
+    
     $(this).append('<svg version="1.1" class="valuescore'+i+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 250 250" enable-background="new 0 0 250 250" xml:space="preserve"><style>.inner'+i+' {stroke-dashoffset: 716;-webkit-animation:dash'+i+' '+dur+'s linear forwards paused;}@-webkit-keyframes dash'+i+' {from { stroke-dashoffset: 716;}to {stroke-dashoffset: '+score+';}}</style><circle class="outer outer'+i+'" cx="125" cy="125" r="115"/><circle class="inner inner'+i+'" cx="125" cy="125" r="115"/></svg>');    
   }); 
   function runRadials(){
@@ -119,12 +120,14 @@ $('.radial-score').each(function(i){
       var dur = $(this).data('duration');
       var spanner = $(this).children('span').first();
       dur = ( dur * 1000 ) / denominator;
+      console.log(numerator)
       function incrementText(){
         var cText = spanner.text()*1;
         if( cText >= ( numerator - 1) ){
           clearInterval(scoreTime);
         }
         c = cText + 1;
+        console.log(c)
         spanner.text(c); 
       };
       var scoreTime = setInterval(function(){incrementText()},dur);
