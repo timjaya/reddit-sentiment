@@ -21,7 +21,11 @@ from flask import Flask, request, render_template, g, redirect, Response, flash,
 
 nltk.download('stopwords')
 
-key_path = "causal-block-257406-c3c917894932.json"
+google_key = json.loads(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+with open('google_key.json','w') as fp:
+    json.dump(google_key, fp)
+
+key_path = "google_key.json"
 
 credentials = service_account.Credentials.from_service_account_file(
     key_path,
