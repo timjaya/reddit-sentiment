@@ -1,10 +1,5 @@
 
-$("#form-search").on('submit', function(){
-  console.log("FORM SEARCH")  
-})
-
 $("#search-entity-btn").on('click', function() {
-  console.log("BUTTON CLICK")
   $("#loader").removeClass("hidden")
 })
 
@@ -28,6 +23,22 @@ var chart = new Chart(ctx, {
     // Configuration options go here
     options: {}
 });
+
+$('#positive_comment').on('click', function() {
+  console.log("click positive")
+  $('#positive_comment').toggleClass('active')
+  $('#negative_comment').toggleClass('active')
+  $('#negative_table').toggleClass('hidden')
+  $('#positive_table').toggleClass('hidden')
+})
+
+$('#negative_comment').on('click', function() {
+  console.log("click negative")
+  $('#positive_comment').toggleClass('active')
+  $('#negative_comment').toggleClass('active')
+  $('#negative_table').toggleClass('hidden')
+  $('#positive_table').toggleClass('hidden')
+})
 
 $('#sales-statistics_switch_2').on('click', function() {
   var ctx = document.getElementById('myChart').getContext('2d');

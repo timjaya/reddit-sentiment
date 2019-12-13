@@ -161,6 +161,11 @@ h1 {
 }
 p { 
 }
+
+.active {
+  
+  color: #00AEEF!important;
+}
 .radial-score {
   width: 100px;
   height: 88px;
